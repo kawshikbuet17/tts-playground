@@ -1,0 +1,18 @@
+# PyTorch CUDA 12.1 wheel index
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# Core ML runtime
+torch==2.3.1+cu121
+transformers==4.51.3
+
+# Hugging Face CLI and Hub
+huggingface_hub==0.36.2
+
+# Indic Parler-TTS
+parler-tts @ git+https://github.com/huggingface/parler-tts.git
+
+# Audio processing
+soundfile==0.12.1
+
+# Gradio UI
+gradio==5.4.0

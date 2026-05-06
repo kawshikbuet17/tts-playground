@@ -1,0 +1,71 @@
+VITS LJ Speech Benchmark Summary
+========================================================================================================================
+
+status: SUCCESS
+model_family: VITS
+checkpoint: checkpoints/pretrained_drive/pretrained_ljs.pth
+config: configs/ljs_base.json
+language: English
+dataset_style: LJ Speech
+sample_rate: 22050
+device: cuda
+gpu: NVIDIA GeForce RTX 3090
+torch: 2.2.0+cu121
+noise_scale: 0.667
+noise_scale_w: 0.8
+length_scale: 1.0
+model_load_time_sec: 0.90
+warmup_runs: 10
+warmup_silent_items: 0
+benchmark_items: 12
+silent_items: 0
+benchmark_wall_time_sec: 8.14
+total_generation_time_sec: 4.01
+total_inference_time_sec: 3.07
+total_postprocess_time_sec: 0.94
+total_audio_duration_sec: 102.86
+average_generation_time_sec: 0.33
+average_inference_time_sec: 0.26
+average_postprocess_time_sec: 0.08
+average_audio_duration_sec: 8.57
+average_text_chars: 123.4
+average_peak: 0.56449918
+average_rms: 0.06637839
+min_peak: 0.42001870
+min_rms: 0.05135309
+effective_rtf: 0.039
+inference_only_rtf: 0.030
+wall_clock_rtf: 0.079
+average_per_item_rtf: 0.074
+fastest_item: item 12 | label=en_long_03 | range=15-30s | RTF=0.018 | audio=18.99s | peak=0.58393854 | rms=0.06149209 | silent=False
+slowest_item: item 1 | label=en_very_short_01 | range=2-4s | RTF=0.179 | audio=1.46s | peak=0.42001870 | rms=0.06902470 | silent=False
+range_summary_1: 15-30s: items=3, silent=0, audio=52.74s, generation=1.13s, effective_rtf=0.021, avg_rtf=0.022
+range_summary_2: 2-4s: items=3, silent=0, audio=4.75s, generation=0.80s, effective_rtf=0.169, avg_rtf=0.170
+range_summary_3: 4-8s: items=3, silent=0, audio=13.04s, generation=0.86s, effective_rtf=0.066, avg_rtf=0.067
+range_summary_4: 8-15s: items=3, silent=0, audio=32.33s, generation=1.21s, effective_rtf=0.038, avg_rtf=0.038
+
+Warmup files:
+warmup 01 | elapsed=  1.11s | infer=  1.07s | post= 0.05s | audio=  2.07s | RTF= 0.539 | peak=0.49727127 | rms=0.05839534 | silent=False | outputs/benchmark/warmup_1.wav
+warmup 02 | elapsed=  0.37s | infer=  0.31s | post= 0.06s | audio=  3.39s | RTF= 0.109 | peak=0.69789362 | rms=0.05456733 | silent=False | outputs/benchmark/warmup_2.wav
+warmup 03 | elapsed=  0.52s | infer=  0.46s | post= 0.06s | audio=  5.36s | RTF= 0.098 | peak=0.48222476 | rms=0.06884245 | silent=False | outputs/benchmark/warmup_3.wav
+warmup 04 | elapsed=  0.24s | infer=  0.20s | post= 0.05s | audio=  2.58s | RTF= 0.095 | peak=0.50954074 | rms=0.06814759 | silent=False | outputs/benchmark/warmup_4.wav
+warmup 05 | elapsed=  0.28s | infer=  0.23s | post= 0.05s | audio=  2.52s | RTF= 0.111 | peak=0.40905970 | rms=0.06180917 | silent=False | outputs/benchmark/warmup_5.wav
+warmup 06 | elapsed=  0.30s | infer=  0.25s | post= 0.05s | audio=  3.89s | RTF= 0.078 | peak=0.48114625 | rms=0.06657247 | silent=False | outputs/benchmark/warmup_6.wav
+warmup 07 | elapsed=  0.30s | infer=  0.21s | post= 0.10s | audio=  4.56s | RTF= 0.066 | peak=0.50154233 | rms=0.06590170 | silent=False | outputs/benchmark/warmup_7.wav
+warmup 08 | elapsed=  0.30s | infer=  0.20s | post= 0.10s | audio=  3.52s | RTF= 0.086 | peak=0.50413233 | rms=0.07724365 | silent=False | outputs/benchmark/warmup_8.wav
+warmup 09 | elapsed=  0.26s | infer=  0.20s | post= 0.06s | audio=  2.50s | RTF= 0.104 | peak=0.39681676 | rms=0.05761053 | silent=False | outputs/benchmark/warmup_9.wav
+warmup 10 | elapsed=  0.29s | infer=  0.22s | post= 0.08s | audio=  3.82s | RTF= 0.077 | peak=0.39257455 | rms=0.06235201 | silent=False | outputs/benchmark/warmup_10.wav
+
+Benchmark files:
+item 01 | label=en_very_short_01   | range=2-4s   | chars=  18 | elapsed=  0.26s | infer=  0.21s | post= 0.05s | audio=  1.46s | RTF= 0.179 | peak=0.42001870 | rms=0.06902470 | silent=False | outputs/benchmark/bench_01_en_very_short_01.wav
+item 02 | label=en_very_short_02   | range=2-4s   | chars=  21 | elapsed=  0.25s | infer=  0.20s | post= 0.04s | audio=  1.49s | RTF= 0.165 | peak=0.43460241 | rms=0.05465949 | silent=False | outputs/benchmark/bench_02_en_very_short_02.wav
+item 03 | label=en_very_short_03   | range=2-4s   | chars=  25 | elapsed=  0.30s | infer=  0.25s | post= 0.05s | audio=  1.80s | RTF= 0.164 | peak=0.51182318 | rms=0.07729610 | silent=False | outputs/benchmark/bench_03_en_very_short_03.wav
+item 04 | label=en_short_01        | range=4-8s   | chars=  50 | elapsed=  0.27s | infer=  0.21s | post= 0.06s | audio=  3.76s | RTF= 0.071 | peak=0.59664595 | rms=0.06731882 | silent=False | outputs/benchmark/bench_04_en_short_01.wav
+item 05 | label=en_short_02        | range=4-8s   | chars=  69 | elapsed=  0.27s | infer=  0.21s | post= 0.05s | audio=  4.83s | RTF= 0.056 | peak=0.48677653 | rms=0.05135309 | silent=False | outputs/benchmark/bench_05_en_short_02.wav
+item 06 | label=en_short_03        | range=4-8s   | chars=  66 | elapsed=  0.33s | infer=  0.26s | post= 0.07s | audio=  4.45s | RTF= 0.074 | peak=0.60153198 | rms=0.07942641 | silent=False | outputs/benchmark/bench_06_en_short_03.wav
+item 07 | label=en_medium_01       | range=8-15s  | chars= 146 | elapsed=  0.48s | infer=  0.27s | post= 0.21s | audio= 10.39s | RTF= 0.046 | peak=0.62169731 | rms=0.06053963 | silent=False | outputs/benchmark/bench_07_en_medium_01.wav
+item 08 | label=en_medium_02       | range=8-15s  | chars= 160 | elapsed=  0.40s | infer=  0.33s | post= 0.07s | audio= 10.47s | RTF= 0.038 | peak=0.57989228 | rms=0.06271239 | silent=False | outputs/benchmark/bench_08_en_medium_02.wav
+item 09 | label=en_medium_03       | range=8-15s  | chars= 160 | elapsed=  0.33s | infer=  0.27s | post= 0.06s | audio= 11.47s | RTF= 0.029 | peak=0.65778565 | rms=0.06817152 | silent=False | outputs/benchmark/bench_09_en_medium_03.wav
+item 10 | label=en_long_01         | range=15-30s | chars= 226 | elapsed=  0.40s | infer=  0.33s | post= 0.07s | audio= 15.17s | RTF= 0.026 | peak=0.70361334 | rms=0.07384679 | silent=False | outputs/benchmark/bench_10_en_long_01.wav
+item 11 | label=en_long_02         | range=15-30s | chars= 277 | elapsed=  0.39s | infer=  0.29s | post= 0.10s | audio= 18.58s | RTF= 0.021 | peak=0.57566428 | rms=0.07069961 | silent=False | outputs/benchmark/bench_11_en_long_02.wav
+item 12 | label=en_long_03         | range=15-30s | chars= 263 | elapsed=  0.34s | infer=  0.23s | post= 0.11s | audio= 18.99s | RTF= 0.018 | peak=0.58393854 | rms=0.06149209 | silent=False | outputs/benchmark/bench_12_en_long_03.wav

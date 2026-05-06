@@ -1,0 +1,58 @@
+IndicF5 Bengali FP32 Benchmark Summary
+========================================================================================================================
+
+status: SUCCESS
+precision: FP32
+language: Bengali
+target_audio_range: 2s_to_30s
+model: ai4bharat/IndicF5
+sample_rate: 24000
+gpu: NVIDIA GeForce RTX 3090
+model_load_time_sec: 8.06
+warmup_runs: 3
+warmup_silent_items: 0
+benchmark_items: 12
+silent_items: 0
+benchmark_wall_time_sec: 62.96
+total_generation_time_sec: 62.96
+total_inference_time_sec: 62.10
+total_postprocess_time_sec: 0.86
+total_audio_duration_sec: 120.70
+average_generation_time_sec: 5.25
+average_inference_time_sec: 5.18
+average_postprocess_time_sec: 0.07
+average_audio_duration_sec: 10.06
+average_text_chars: 122.9
+average_peak: 0.94971212
+average_rms: 0.09996591
+min_peak: 0.69686890
+min_rms: 0.09959835
+effective_rtf: 0.522
+inference_only_rtf: 0.515
+wall_clock_rtf: 0.522
+average_per_item_rtf: 0.764
+fastest_item: item 8 | label=bn_medium_02 | range=8-15s | RTF=0.431 | audio=12.30s | peak=0.99996948 | rms=0.10001950 | silent=False
+slowest_item: item 1 | label=bn_very_short_01 | range=2-4s | RTF=1.823 | audio=1.25s | peak=0.81231689 | rms=0.10000509 | silent=False
+range_summary_1: 15-30s: items=3, silent=0, audio=66.10s, generation=31.15s, effective_rtf=0.471, avg_rtf=0.471
+range_summary_2: 2-4s: items=3, silent=0, audio=4.81s, generation=7.04s, effective_rtf=1.464, avg_rtf=1.500
+range_summary_3: 4-8s: items=3, silent=0, audio=13.09s, generation=8.20s, effective_rtf=0.627, avg_rtf=0.633
+range_summary_4: 8-15s: items=3, silent=0, audio=36.70s, generation=16.56s, effective_rtf=0.451, avg_rtf=0.451
+
+Warmup files:
+warmup 01 | elapsed=  3.09s | infer=  2.98s | post= 0.10s | audio=  2.96s | RTF= 1.041 | peak=0.86688232 | rms=0.10014600 | silent=False | outputs/benchmark/warmup_1.wav
+warmup 02 | elapsed=  2.76s | infer=  2.71s | post= 0.05s | audio=  4.55s | RTF= 0.605 | peak=0.95867920 | rms=0.10000938 | silent=False | outputs/benchmark/warmup_2.wav
+warmup 03 | elapsed=  2.89s | infer=  2.84s | post= 0.05s | audio=  5.36s | RTF= 0.540 | peak=1.00000000 | rms=0.09991536 | silent=False | outputs/benchmark/warmup_3.wav
+
+Benchmark files:
+item 01 | label=bn_very_short_01   | range=2-4s   | chars=  15 | elapsed=  2.27s | infer=  2.22s | post= 0.05s | audio=  1.25s | RTF= 1.823 | peak=0.81231689 | rms=0.10000509 | silent=False | outputs/benchmark/bench_01_bn_very_short_01.wav
+item 02 | label=bn_very_short_02   | range=2-4s   | chars=  21 | elapsed=  2.40s | infer=  2.31s | post= 0.09s | audio=  1.74s | RTF= 1.382 | peak=0.69686890 | rms=0.10002912 | silent=False | outputs/benchmark/bench_02_bn_very_short_02.wav
+item 03 | label=bn_very_short_03   | range=2-4s   | chars=  22 | elapsed=  2.37s | infer=  2.31s | post= 0.05s | audio=  1.82s | RTF= 1.297 | peak=0.90069580 | rms=0.10004506 | silent=False | outputs/benchmark/bench_03_bn_very_short_03.wav
+item 04 | label=bn_short_01        | range=4-8s   | chars=  45 | elapsed=  2.63s | infer=  2.58s | post= 0.05s | audio=  3.70s | RTF= 0.711 | peak=0.99996948 | rms=0.10001510 | silent=False | outputs/benchmark/bench_04_bn_short_01.wav
+item 05 | label=bn_short_02        | range=4-8s   | chars=  59 | elapsed=  2.79s | infer=  2.74s | post= 0.05s | audio=  4.86s | RTF= 0.574 | peak=0.99996948 | rms=0.10003045 | silent=False | outputs/benchmark/bench_05_bn_short_02.wav
+item 06 | label=bn_short_03        | range=4-8s   | chars=  56 | elapsed=  2.78s | infer=  2.71s | post= 0.07s | audio=  4.52s | RTF= 0.615 | peak=0.98678589 | rms=0.10005089 | silent=False | outputs/benchmark/bench_06_bn_short_03.wav
+item 07 | label=bn_medium_01       | range=8-15s  | chars= 132 | elapsed=  5.07s | infer=  4.98s | post= 0.09s | audio= 11.09s | RTF= 0.457 | peak=1.00000000 | rms=0.09959835 | silent=False | outputs/benchmark/bench_07_bn_medium_01.wav
+item 08 | label=bn_medium_02       | range=8-15s  | chars= 149 | elapsed=  5.30s | infer=  5.21s | post= 0.09s | audio= 12.30s | RTF= 0.431 | peak=0.99996948 | rms=0.10001950 | silent=False | outputs/benchmark/bench_08_bn_medium_02.wav
+item 09 | label=bn_medium_03       | range=8-15s  | chars= 162 | elapsed=  6.19s | infer=  6.13s | post= 0.06s | audio= 13.31s | RTF= 0.465 | peak=1.00000000 | rms=0.09993618 | silent=False | outputs/benchmark/bench_09_bn_medium_03.wav
+item 10 | label=bn_long_01         | range=15-30s | chars= 254 | elapsed=  9.64s | infer=  9.56s | post= 0.08s | audio= 20.73s | RTF= 0.465 | peak=0.99996948 | rms=0.10002990 | silent=False | outputs/benchmark/bench_10_bn_long_01.wav
+item 11 | label=bn_long_02         | range=15-30s | chars= 271 | elapsed= 10.46s | infer= 10.38s | post= 0.08s | audio= 21.92s | RTF= 0.477 | peak=1.00000000 | rms=0.09987496 | silent=False | outputs/benchmark/bench_11_bn_long_02.wav
+item 12 | label=bn_long_03         | range=15-30s | chars= 289 | elapsed= 11.05s | infer= 10.97s | post= 0.08s | audio= 23.45s | RTF= 0.471 | peak=1.00000000 | rms=0.09995633 | silent=False | outputs/benchmark/bench_12_bn_long_03.wav

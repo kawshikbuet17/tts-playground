@@ -1,0 +1,517 @@
+Faster Qwen3-TTS Full Benchmark Summary
+========================================================================================================================
+
+script: test_faster_qwen3_tts_full_benchmark.py
+device: cuda
+cuda_available: True
+gpu: NVIDIA GeForce RTX 3090
+torch: 2.5.1+cu121
+dtype: fp32
+language: English
+base_model: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+custom_model: Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice
+design_model: Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+speaker: aiden
+ref_audio: ref_audio.wav
+ref_text_chars: 257
+design_instruct: Warm, confident narrator with clear pronunciation and a natural conversational rhythm.
+chunk_size: 8
+temperature: 0.9
+top_k: 50
+top_p: 1.0
+repetition_penalty: 1.05
+non_streaming_mode: None
+append_silence: True
+do_sample: True
+
+Overall summary
+------------------------------------------------------------------------------------------------------------------------
+items: 96
+ok_items: 96
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 749.5200416666663
+total_generation_time_sec: 391.0842107664794
+total_inference_time_sec: 375.3759470283985
+total_postprocess_time_sec: 15.70826373808086
+effective_rtf_elapsed_over_audio: 0.521779524263083
+inference_only_rtf_elapsed_over_audio: 0.5008217608080175
+throughput_x_audio_over_elapsed: 1.9165182869379835
+average_per_item_rtf_elapsed_over_audio: 0.5561753714653619
+average_per_item_throughput_x: 1.8417083317268295
+average_audio_duration_sec: 7.807500434027777
+average_generation_time_sec: 4.0737938621508265
+average_peak: 0.5841150038565198
+average_rms: 0.08827011244526754
+min_peak: 0.2922053635120392
+min_rms: 0.0550723522901535
+average_ttfa_sec: 0.40924199915025383
+min_ttfa_sec: 0.3705077860504389
+max_ttfa_sec: 0.48743304796516895
+status: SUCCESS
+modes_run: 8
+mode_names: clone_streaming, clone_non_streaming, clone_xvec_streaming, clone_xvec_non_streaming, custom_streaming, custom_non_streaming, design_streaming, design_non_streaming
+
+========================================================================================================================
+Mode: clone_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 77.76000000000002
+total_generation_time_sec: 47.67620702087879
+total_inference_time_sec: 42.227070635184646
+total_postprocess_time_sec: 5.449136385694146
+effective_rtf_elapsed_over_audio: 0.6131199462561572
+inference_only_rtf_elapsed_over_audio: 0.543043603847539
+throughput_x_audio_over_elapsed: 1.6310022306503256
+average_per_item_rtf_elapsed_over_audio: 0.7193144272069965
+average_per_item_throughput_x: 1.4622007379572663
+average_audio_duration_sec: 6.48
+average_generation_time_sec: 3.973017251739899
+average_peak: 0.5081806729237238
+average_rms: 0.08110071253031492
+min_peak: 0.4241884648799896
+min_rms: 0.061278361827135086
+average_ttfa_sec: 0.4683605309886237
+min_ttfa_sec: 0.45717278122901917
+max_ttfa_sec: 0.48743304796516895
+mode: clone_streaming
+family: clone
+streaming: True
+xvec_only: False
+model: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+model_load_time_sec: 58.176707189530134
+benchmark_wall_time_sec: 47.67997648194432
+wall_clock_rtf_elapsed_over_audio: 0.6131684218357036
+wall_clock_throughput_x_audio_over_wall: 1.6308732876461578
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=39.20s, generation=21.08s, effective_rtf=0.538, throughput_x=1.86, avg_ttfa=0.462s
+bucket_summary_2: medium: items=3, silent=0, audio=24.16s, generation=14.82s, effective_rtf=0.613, throughput_x=1.63, avg_ttfa=0.478s
+bucket_summary_3: short: items=3, silent=0, audio=10.16s, generation=7.81s, effective_rtf=0.769, throughput_x=1.30, avg_ttfa=0.468s
+bucket_summary_4: very_short: items=3, silent=0, audio=4.24s, generation=3.97s, effective_rtf=0.935, throughput_x=1.07, avg_ttfa=0.465s
+fastest_item_by_elapsed_over_audio_rtf: item 11 | en_long_02 | RTF=0.531 | throughput_x=1.88 | audio=14.32s
+slowest_item_by_elapsed_over_audio_rtf: item 1 | en_very_short_01 | RTF=1.012 | throughput_x=0.99 | audio=1.04s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=1.05s | infer=0.75s | post=0.31s | ttfa=0.4613172672688961 | audio=1.04s | RTF=1.012 | throughput_x=0.99 | peak=0.45843318 | rms=0.08958425 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=1.47s | infer=1.17s | post=0.30s | ttfa=0.467706061899662 | audio=1.76s | RTF=0.838 | throughput_x=1.19 | peak=0.44829863 | rms=0.07948609 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=1.44s | infer=1.02s | post=0.42s | ttfa=0.46649055555462837 | audio=1.44s | RTF=0.999 | throughput_x=1.00 | peak=0.45855144 | rms=0.11066376 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=2.60s | infer=1.89s | post=0.71s | ttfa=0.46832645684480667 | audio=3.04s | RTF=0.856 | throughput_x=1.17 | peak=0.48798311 | rms=0.06127836 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=2.47s | infer=2.14s | post=0.33s | ttfa=0.4780139606446028 | audio=3.52s | RTF=0.701 | throughput_x=1.43 | peak=0.72417063 | rms=0.08976509 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.75s | infer=2.13s | post=0.62s | ttfa=0.45717278122901917 | audio=3.60s | RTF=0.763 | throughput_x=1.31 | peak=0.48995370 | rms=0.09185897 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=4.51s | infer=3.69s | post=0.82s | ttfa=0.47874100133776665 | audio=6.80s | RTF=0.663 | throughput_x=1.51 | peak=0.42418846 | rms=0.06701715 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=4.42s | infer=4.05s | post=0.37s | ttfa=0.48743304796516895 | audio=7.52s | RTF=0.587 | throughput_x=1.70 | peak=0.42660886 | rms=0.07647430 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=5.89s | infer=5.18s | post=0.71s | ttfa=0.46873469464480877 | audio=9.84s | RTF=0.599 | throughput_x=1.67 | peak=0.66480339 | rms=0.07416287 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=6.66s | infer=6.47s | post=0.18s | ttfa=0.4642291273921728 | audio=12.48s | RTF=0.533 | throughput_x=1.87 | peak=0.51139945 | rms=0.08028320 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=7.60s | infer=7.34s | post=0.25s | ttfa=0.46139647625386715 | audio=14.32s | RTF=0.531 | throughput_x=1.88 | peak=0.45357457 | rms=0.08009295 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=6.82s | infer=6.41s | post=0.41s | ttfa=0.46076494082808495 | audio=12.40s | RTF=0.550 | throughput_x=1.82 | peak=0.55020267 | rms=0.07254155 | silent=False | path=outputs/full_benchmark_all_fp32/clone_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: clone_non_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 80.96004166666665
+total_generation_time_sec: 43.724782859906554
+total_inference_time_sec: 38.54906270466745
+total_postprocess_time_sec: 5.175720155239105
+effective_rtf_elapsed_over_audio: 0.5400785617173067
+inference_only_rtf_elapsed_over_audio: 0.4761492448754395
+throughput_x_audio_over_elapsed: 1.851582475001905
+average_per_item_rtf_elapsed_over_audio: 0.5581911960829605
+average_per_item_throughput_x: 1.8136578731225177
+average_audio_duration_sec: 6.746670138888889
+average_generation_time_sec: 3.643731904992213
+average_peak: 0.5047483493884405
+average_rms: 0.07864556896189849
+min_peak: 0.2922053635120392
+min_rms: 0.06796044856309891
+average_ttfa_sec: None
+min_ttfa_sec: None
+max_ttfa_sec: None
+mode: clone_non_streaming
+family: clone
+streaming: False
+xvec_only: False
+model: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+model_load_time_sec: 58.176707189530134
+benchmark_wall_time_sec: 43.727556528523564
+wall_clock_rtf_elapsed_over_audio: 0.5401128214404975
+wall_clock_throughput_x_audio_over_wall: 1.8514650278676392
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=41.28s, generation=23.29s, effective_rtf=0.564, throughput_x=1.77
+bucket_summary_2: medium: items=3, silent=0, audio=24.24s, generation=11.94s, effective_rtf=0.492, throughput_x=2.03
+bucket_summary_3: short: items=3, silent=0, audio=11.84s, generation=6.17s, effective_rtf=0.521, throughput_x=1.92
+bucket_summary_4: very_short: items=3, silent=0, audio=3.60s, generation=2.33s, effective_rtf=0.647, throughput_x=1.55
+fastest_item_by_elapsed_over_audio_rtf: item 9 | en_medium_03 | RTF=0.485 | throughput_x=2.06 | audio=9.28s
+slowest_item_by_elapsed_over_audio_rtf: item 1 | en_very_short_01 | RTF=0.694 | throughput_x=1.44 | audio=0.96s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=0.67s | infer=0.60s | post=0.07s | ttfa=None | audio=0.96s | RTF=0.694 | throughput_x=1.44 | peak=0.29220536 | rms=0.07163964 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=0.81s | infer=0.73s | post=0.07s | ttfa=None | audio=1.28s | RTF=0.629 | throughput_x=1.59 | peak=0.43946758 | rms=0.08843750 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=0.86s | infer=0.78s | post=0.08s | ttfa=None | audio=1.36s | RTF=0.631 | throughput_x=1.58 | peak=0.58063400 | rms=0.08339687 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=1.99s | infer=1.93s | post=0.06s | ttfa=None | audio=3.92s | RTF=0.507 | throughput_x=1.97 | peak=0.49619478 | rms=0.06796045 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=1.81s | infer=1.72s | post=0.09s | ttfa=None | audio=3.44s | RTF=0.526 | throughput_x=1.90 | peak=0.49046874 | rms=0.07904372 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.37s | infer=2.18s | post=0.19s | ttfa=None | audio=4.48s | RTF=0.529 | throughput_x=1.89 | peak=0.42201659 | rms=0.07469671 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=3.25s | infer=3.10s | post=0.15s | ttfa=None | audio=6.48s | RTF=0.502 | throughput_x=1.99 | peak=0.50178343 | rms=0.07931139 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=4.18s | infer=3.98s | post=0.20s | ttfa=None | audio=8.48s | RTF=0.493 | throughput_x=2.03 | peak=0.50477701 | rms=0.07879031 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=4.50s | infer=4.35s | post=0.15s | ttfa=None | audio=9.28s | RTF=0.485 | throughput_x=2.06 | peak=0.58879119 | rms=0.08177348 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=7.43s | infer=6.14s | post=1.29s | ttfa=None | audio=13.28s | RTF=0.560 | throughput_x=1.79 | peak=0.47879943 | rms=0.08152221 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=8.51s | infer=7.38s | post=1.13s | ttfa=None | audio=15.92s | RTF=0.534 | throughput_x=1.87 | peak=0.69777495 | rms=0.08183496 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=7.36s | infer=5.66s | post=1.70s | ttfa=None | audio=12.08s | RTF=0.609 | throughput_x=1.64 | peak=0.56406713 | rms=0.07533958 | silent=False | path=outputs/full_benchmark_all_fp32/clone_non_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: clone_xvec_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 92.72
+total_generation_time_sec: 46.908344047144055
+total_inference_time_sec: 46.138213124126196
+total_postprocess_time_sec: 0.7701309230178595
+effective_rtf_elapsed_over_audio: 0.5059139780753241
+inference_only_rtf_elapsed_over_audio: 0.49760799314199955
+throughput_x_audio_over_elapsed: 1.976620618003784
+average_per_item_rtf_elapsed_over_audio: 0.5316148856411615
+average_per_item_throughput_x: 1.8955962789724066
+average_audio_duration_sec: 7.726666666666667
+average_generation_time_sec: 3.909028670595338
+average_peak: 0.5044986307621002
+average_rms: 0.07760206609964371
+min_peak: 0.378996878862381
+min_rms: 0.0550723522901535
+average_ttfa_sec: 0.37293284355352324
+min_ttfa_sec: 0.3705077860504389
+max_ttfa_sec: 0.3774631079286337
+mode: clone_xvec_streaming
+family: clone
+streaming: True
+xvec_only: True
+model: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+model_load_time_sec: 58.176707189530134
+benchmark_wall_time_sec: 46.910806557163596
+wall_clock_rtf_elapsed_over_audio: 0.5059405366389517
+wall_clock_throughput_x_audio_over_wall: 1.9765168583706867
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=47.52s, generation=23.68s, effective_rtf=0.498, throughput_x=2.01, avg_ttfa=0.375s
+bucket_summary_2: medium: items=3, silent=0, audio=28.64s, generation=14.38s, effective_rtf=0.502, throughput_x=1.99, avg_ttfa=0.374s
+bucket_summary_3: short: items=3, silent=0, audio=12.88s, generation=6.60s, effective_rtf=0.513, throughput_x=1.95, avg_ttfa=0.371s
+bucket_summary_4: very_short: items=3, silent=0, audio=3.68s, generation=2.25s, effective_rtf=0.610, throughput_x=1.64, avg_ttfa=0.371s
+fastest_item_by_elapsed_over_audio_rtf: item 11 | en_long_02 | RTF=0.496 | throughput_x=2.01 | audio=18.80s
+slowest_item_by_elapsed_over_audio_rtf: item 1 | en_very_short_01 | RTF=0.652 | throughput_x=1.53 | audio=1.04s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=0.68s | infer=0.61s | post=0.07s | ttfa=0.37113495729863644 | audio=1.04s | RTF=0.652 | throughput_x=1.53 | peak=0.51229018 | rms=0.08712143 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=0.75s | infer=0.68s | post=0.07s | ttfa=0.3719924259930849 | audio=1.28s | RTF=0.585 | throughput_x=1.71 | peak=0.48905313 | rms=0.09046067 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=0.82s | infer=0.77s | post=0.05s | ttfa=0.3711324278265238 | audio=1.36s | RTF=0.602 | throughput_x=1.66 | peak=0.37899688 | rms=0.07657614 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=2.02s | infer=1.98s | post=0.04s | ttfa=0.37199789099395275 | audio=3.92s | RTF=0.515 | throughput_x=1.94 | peak=0.47149339 | rms=0.05892100 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=2.39s | infer=2.33s | post=0.06s | ttfa=0.3705077860504389 | audio=4.64s | RTF=0.514 | throughput_x=1.95 | peak=0.50467557 | rms=0.08423867 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.20s | infer=2.16s | post=0.04s | ttfa=0.37149943970143795 | audio=4.32s | RTF=0.509 | throughput_x=1.96 | peak=0.47633484 | rms=0.08432408 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=4.17s | infer=4.10s | post=0.07s | ttfa=0.3729900177568197 | audio=8.32s | RTF=0.501 | throughput_x=2.00 | peak=0.63028204 | rms=0.07800483 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=4.60s | infer=4.53s | post=0.07s | ttfa=0.3748890794813633 | audio=9.12s | RTF=0.504 | throughput_x=1.98 | peak=0.41472176 | rms=0.05507235 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=5.62s | infer=5.54s | post=0.07s | ttfa=0.3737965486943722 | audio=11.20s | RTF=0.501 | throughput_x=1.99 | peak=0.50451833 | rms=0.07665330 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=6.95s | infer=6.87s | post=0.08s | ttfa=0.3744129426777363 | audio=13.92s | RTF=0.499 | throughput_x=2.00 | peak=0.63001871 | rms=0.09038750 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=9.33s | infer=9.26s | post=0.08s | ttfa=0.3733774982392788 | audio=18.80s | RTF=0.496 | throughput_x=2.01 | peak=0.49481982 | rms=0.07439598 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=7.39s | infer=7.32s | post=0.07s | ttfa=0.3774631079286337 | audio=14.80s | RTF=0.500 | throughput_x=2.00 | peak=0.54677892 | rms=0.07506883 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: clone_xvec_non_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 88.8
+total_generation_time_sec: 42.01956000365317
+total_inference_time_sec: 41.10629853978753
+total_postprocess_time_sec: 0.9132614638656378
+effective_rtf_elapsed_over_audio: 0.47319324328438256
+inference_only_rtf_elapsed_over_audio: 0.4629087673399497
+throughput_x_audio_over_elapsed: 2.113301519394295
+average_per_item_rtf_elapsed_over_audio: 0.49643588150751755
+average_per_item_throughput_x: 2.026479068137743
+average_audio_duration_sec: 7.4
+average_generation_time_sec: 3.5016300003044307
+average_peak: 0.46836821486552555
+average_rms: 0.07762271165847778
+min_peak: 0.36195340752601624
+min_rms: 0.06489070504903793
+average_ttfa_sec: None
+min_ttfa_sec: None
+max_ttfa_sec: None
+mode: clone_xvec_non_streaming
+family: clone
+streaming: False
+xvec_only: True
+model: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+model_load_time_sec: 58.176707189530134
+benchmark_wall_time_sec: 42.021872229874134
+wall_clock_rtf_elapsed_over_audio: 0.473219281867952
+wall_clock_throughput_x_audio_over_wall: 2.113185236351045
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=44.32s, generation=20.50s, effective_rtf=0.463, throughput_x=2.16
+bucket_summary_2: medium: items=3, silent=0, audio=28.88s, generation=13.55s, effective_rtf=0.469, throughput_x=2.13
+bucket_summary_3: short: items=3, silent=0, audio=11.36s, generation=5.61s, effective_rtf=0.494, throughput_x=2.02
+bucket_summary_4: very_short: items=3, silent=0, audio=4.24s, generation=2.36s, effective_rtf=0.556, throughput_x=1.80
+fastest_item_by_elapsed_over_audio_rtf: item 11 | en_long_02 | RTF=0.459 | throughput_x=2.18 | audio=16.56s
+slowest_item_by_elapsed_over_audio_rtf: item 1 | en_very_short_01 | RTF=0.590 | throughput_x=1.69 | audio=1.20s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=0.71s | infer=0.65s | post=0.05s | ttfa=None | audio=1.20s | RTF=0.590 | throughput_x=1.69 | peak=0.37968573 | rms=0.07825683 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=0.66s | infer=0.62s | post=0.04s | ttfa=None | audio=1.20s | RTF=0.551 | throughput_x=1.81 | peak=0.36195341 | rms=0.07465082 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=0.99s | infer=0.94s | post=0.04s | ttfa=None | audio=1.84s | RTF=0.536 | throughput_x=1.87 | peak=0.40001994 | rms=0.09354515 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=1.60s | infer=1.55s | post=0.05s | ttfa=None | audio=3.28s | RTF=0.489 | throughput_x=2.04 | peak=0.53618729 | rms=0.06534069 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=1.95s | infer=1.90s | post=0.06s | ttfa=None | audio=4.00s | RTF=0.488 | throughput_x=2.05 | peak=0.38401285 | rms=0.07916308 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.06s | infer=1.99s | post=0.06s | ttfa=None | audio=4.08s | RTF=0.504 | throughput_x=1.98 | peak=0.47669381 | rms=0.09242143 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=3.72s | infer=3.66s | post=0.06s | ttfa=None | audio=7.92s | RTF=0.469 | throughput_x=2.13 | peak=0.48420560 | rms=0.07969541 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=4.12s | infer=3.98s | post=0.14s | ttfa=None | audio=8.64s | RTF=0.476 | throughput_x=2.10 | peak=0.45558816 | rms=0.06812967 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=5.72s | infer=5.63s | post=0.08s | ttfa=None | audio=12.32s | RTF=0.464 | throughput_x=2.16 | peak=0.56384504 | rms=0.08226728 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=6.35s | infer=6.27s | post=0.07s | ttfa=None | audio=13.76s | RTF=0.461 | throughput_x=2.17 | peak=0.49357855 | rms=0.07607350 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=7.60s | infer=7.52s | post=0.08s | ttfa=None | audio=16.56s | RTF=0.459 | throughput_x=2.18 | peak=0.53670812 | rms=0.07703798 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=6.55s | infer=6.38s | post=0.17s | ttfa=None | audio=14.00s | RTF=0.468 | throughput_x=2.14 | peak=0.54794008 | rms=0.06489071 | silent=False | path=outputs/full_benchmark_all_fp32/clone_xvec_non_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: custom_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 107.28
+total_generation_time_sec: 53.85239373520017
+total_inference_time_sec: 52.9781472440809
+total_postprocess_time_sec: 0.8742464911192656
+effective_rtf_elapsed_over_audio: 0.5019798073750947
+inference_only_rtf_elapsed_over_audio: 0.4938306044377414
+throughput_x_audio_over_elapsed: 1.992112003925228
+average_per_item_rtf_elapsed_over_audio: 0.5144023004863862
+average_per_item_throughput_x: 1.9467028617494737
+average_audio_duration_sec: 8.94
+average_generation_time_sec: 4.487699477933347
+average_peak: 0.6785731290777525
+average_rms: 0.09850701938072841
+min_peak: 0.48992905020713806
+min_rms: 0.071976438164711
+average_ttfa_sec: 0.3745967637126644
+min_ttfa_sec: 0.37103281542658806
+max_ttfa_sec: 0.37746135145425797
+mode: custom_streaming
+family: custom
+streaming: True
+xvec_only: False
+model: Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice
+model_load_time_sec: 24.964807702228427
+benchmark_wall_time_sec: 53.85511388629675
+wall_clock_rtf_elapsed_over_audio: 0.5020051629968004
+wall_clock_throughput_x_audio_over_wall: 1.9920113849633327
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=53.36s, generation=26.42s, effective_rtf=0.495, throughput_x=2.02, avg_ttfa=0.377s
+bucket_summary_2: medium: items=3, silent=0, audio=35.60s, generation=17.76s, effective_rtf=0.499, throughput_x=2.00, avg_ttfa=0.376s
+bucket_summary_3: short: items=3, silent=0, audio=12.00s, generation=6.25s, effective_rtf=0.521, throughput_x=1.92, avg_ttfa=0.373s
+bucket_summary_4: very_short: items=3, silent=0, audio=6.32s, generation=3.42s, effective_rtf=0.541, throughput_x=1.85, avg_ttfa=0.372s
+fastest_item_by_elapsed_over_audio_rtf: item 11 | en_long_02 | RTF=0.494 | throughput_x=2.02 | audio=19.68s
+slowest_item_by_elapsed_over_audio_rtf: item 2 | en_very_short_02 | RTF=0.552 | throughput_x=1.81 | audio=1.84s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=1.37s | infer=1.30s | post=0.07s | ttfa=0.3715880513191223 | audio=2.56s | RTF=0.536 | throughput_x=1.87 | peak=0.55700749 | rms=0.08506754 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=1.02s | infer=0.95s | post=0.06s | ttfa=0.3722612950950861 | audio=1.84s | RTF=0.552 | throughput_x=1.81 | peak=0.48992905 | rms=0.08168254 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=1.03s | infer=0.99s | post=0.05s | ttfa=0.37282509729266167 | audio=1.92s | RTF=0.538 | throughput_x=1.86 | peak=0.79178023 | rms=0.14570914 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=1.85s | infer=1.78s | post=0.07s | ttfa=0.37103281542658806 | audio=3.52s | RTF=0.525 | throughput_x=1.90 | peak=0.51984131 | rms=0.07197644 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=2.14s | infer=2.06s | post=0.08s | ttfa=0.3741043545305729 | audio=4.08s | RTF=0.525 | throughput_x=1.91 | peak=0.82426411 | rms=0.12831882 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.26s | infer=2.20s | post=0.06s | ttfa=0.37491985224187374 | audio=4.40s | RTF=0.514 | throughput_x=1.95 | peak=0.69057775 | rms=0.09181640 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=4.99s | infer=4.90s | post=0.09s | ttfa=0.37638900987803936 | audio=9.92s | RTF=0.503 | throughput_x=1.99 | peak=0.68181515 | rms=0.09609564 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=6.02s | infer=5.94s | post=0.08s | ttfa=0.3766619302332401 | audio=12.08s | RTF=0.498 | throughput_x=2.01 | peak=0.62995571 | rms=0.09719199 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=6.75s | infer=6.69s | post=0.06s | ttfa=0.37575293332338333 | audio=13.60s | RTF=0.496 | throughput_x=2.01 | peak=0.75126266 | rms=0.10322918 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=7.86s | infer=7.77s | post=0.09s | ttfa=0.37746135145425797 | audio=15.84s | RTF=0.496 | throughput_x=2.02 | peak=0.89363641 | rms=0.11312138 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=9.72s | infer=9.64s | post=0.09s | ttfa=0.37704698741436005 | audio=19.68s | RTF=0.494 | throughput_x=2.02 | peak=0.65664709 | rms=0.09254660 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=8.84s | infer=8.78s | post=0.06s | ttfa=0.37511748634278774 | audio=17.84s | RTF=0.496 | throughput_x=2.02 | peak=0.65616059 | rms=0.07532857 | silent=False | path=outputs/full_benchmark_all_fp32/custom_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: custom_non_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 108.88
+total_generation_time_sec: 50.82143826037645
+total_inference_time_sec: 49.995762372389436
+total_postprocess_time_sec: 0.8256758879870176
+effective_rtf_elapsed_over_audio: 0.4667655975420321
+inference_only_rtf_elapsed_over_audio: 0.45918224074567815
+throughput_x_audio_over_elapsed: 2.1424029647128187
+average_per_item_rtf_elapsed_over_audio: 0.48254981022191895
+average_per_item_throughput_x: 2.078326056132395
+average_audio_duration_sec: 9.073333333333334
+average_generation_time_sec: 4.235119855031371
+average_peak: 0.6864476874470711
+average_rms: 0.10203640908002853
+min_peak: 0.3268866539001465
+min_rms: 0.06929429620504379
+average_ttfa_sec: None
+min_ttfa_sec: None
+max_ttfa_sec: None
+mode: custom_non_streaming
+family: custom
+streaming: False
+xvec_only: False
+model: Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice
+model_load_time_sec: 24.964807702228427
+benchmark_wall_time_sec: 50.82338358275592
+wall_clock_rtf_elapsed_over_audio: 0.46678346420606104
+wall_clock_throughput_x_audio_over_wall: 2.1423209618208565
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=54.48s, generation=24.99s, effective_rtf=0.459, throughput_x=2.18
+bucket_summary_2: medium: items=3, silent=0, audio=35.36s, generation=16.45s, effective_rtf=0.465, throughput_x=2.15
+bucket_summary_3: short: items=3, silent=0, audio=13.44s, generation=6.46s, effective_rtf=0.480, throughput_x=2.08
+bucket_summary_4: very_short: items=3, silent=0, audio=5.60s, generation=2.93s, effective_rtf=0.524, throughput_x=1.91
+fastest_item_by_elapsed_over_audio_rtf: item 11 | en_long_02 | RTF=0.458 | throughput_x=2.18 | audio=20.88s
+slowest_item_by_elapsed_over_audio_rtf: item 1 | en_very_short_01 | RTF=0.542 | throughput_x=1.85 | audio=1.68s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=0.91s | infer=0.87s | post=0.04s | ttfa=None | audio=1.68s | RTF=0.542 | throughput_x=1.85 | peak=0.32688665 | rms=0.06929430 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=0.99s | infer=0.95s | post=0.04s | ttfa=None | audio=1.92s | RTF=0.516 | throughput_x=1.94 | peak=0.45898184 | rms=0.07819591 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=1.03s | infer=0.98s | post=0.05s | ttfa=None | audio=2.00s | RTF=0.517 | throughput_x=1.94 | peak=1.00000000 | rms=0.15687475 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=1.75s | infer=1.70s | post=0.05s | ttfa=None | audio=3.60s | RTF=0.486 | throughput_x=2.06 | peak=0.77533013 | rms=0.09555726 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=1.97s | infer=1.92s | post=0.05s | ttfa=None | audio=4.08s | RTF=0.483 | throughput_x=2.07 | peak=0.57060921 | rms=0.10082644 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.74s | infer=2.69s | post=0.05s | ttfa=None | audio=5.76s | RTF=0.475 | throughput_x=2.11 | peak=0.81628019 | rms=0.13207977 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=5.20s | infer=5.08s | post=0.12s | ttfa=None | audio=11.12s | RTF=0.468 | throughput_x=2.14 | peak=0.67036182 | rms=0.09890422 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=5.27s | infer=5.16s | post=0.11s | ttfa=None | audio=11.28s | RTF=0.467 | throughput_x=2.14 | peak=0.71178395 | rms=0.10510704 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=5.97s | infer=5.91s | post=0.06s | ttfa=None | audio=12.96s | RTF=0.461 | throughput_x=2.17 | peak=0.81973392 | rms=0.10396944 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=7.21s | infer=7.13s | post=0.07s | ttfa=None | audio=15.68s | RTF=0.460 | throughput_x=2.18 | peak=0.70865041 | rms=0.10520565 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=9.56s | infer=9.47s | post=0.09s | ttfa=None | audio=20.88s | RTF=0.458 | throughput_x=2.18 | peak=0.76167637 | rms=0.08973061 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=8.22s | infer=8.14s | post=0.08s | ttfa=None | audio=17.92s | RTF=0.459 | throughput_x=2.18 | peak=0.61707777 | rms=0.08869152 | silent=False | path=outputs/full_benchmark_all_fp32/custom_non_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: design_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 98.24000000000001
+total_generation_time_sec: 55.595588298514485
+total_inference_time_sec: 54.85857135988772
+total_postprocess_time_sec: 0.7370169386267662
+effective_rtf_elapsed_over_audio: 0.5659160046672891
+inference_only_rtf_elapsed_over_audio: 0.5584137964157951
+throughput_x_audio_over_elapsed: 1.7670466849367792
+average_per_item_rtf_elapsed_over_audio: 0.5888847800311395
+average_per_item_throughput_x: 1.7055503377611283
+average_audio_duration_sec: 8.186666666666667
+average_generation_time_sec: 4.632965691542874
+average_peak: 0.6718542675177256
+average_rms: 0.09529784011344115
+min_peak: 0.49686527252197266
+min_rms: 0.06980125606060028
+average_ttfa_sec: 0.421077858346204
+min_ttfa_sec: 0.4128942769020796
+max_ttfa_sec: 0.448178393766284
+mode: design_streaming
+family: design
+streaming: True
+xvec_only: False
+model: Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+model_load_time_sec: 41.63703514076769
+benchmark_wall_time_sec: 55.59816558659077
+wall_clock_rtf_elapsed_over_audio: 0.5659422392771861
+wall_clock_throughput_x_audio_over_wall: 1.7669647723718003
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=52.32s, generation=29.22s, effective_rtf=0.558, throughput_x=1.79, avg_ttfa=0.428s
+bucket_summary_2: medium: items=3, silent=0, audio=30.80s, generation=17.26s, effective_rtf=0.560, throughput_x=1.78, avg_ttfa=0.414s
+bucket_summary_3: short: items=3, silent=0, audio=10.48s, generation=6.07s, effective_rtf=0.579, throughput_x=1.73, avg_ttfa=0.418s
+bucket_summary_4: very_short: items=3, silent=0, audio=4.64s, generation=3.04s, effective_rtf=0.656, throughput_x=1.52, avg_ttfa=0.424s
+fastest_item_by_elapsed_over_audio_rtf: item 12 | en_long_03 | RTF=0.557 | throughput_x=1.80 | audio=17.44s
+slowest_item_by_elapsed_over_audio_rtf: item 1 | en_very_short_01 | RTF=0.667 | throughput_x=1.50 | audio=1.44s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=0.96s | infer=0.91s | post=0.05s | ttfa=0.412905128672719 | audio=1.44s | RTF=0.667 | throughput_x=1.50 | peak=0.70642126 | rms=0.10986391 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=1.00s | infer=0.96s | post=0.04s | ttfa=0.42835862189531326 | audio=1.52s | RTF=0.658 | throughput_x=1.52 | peak=0.74014485 | rms=0.09557301 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=1.08s | infer=1.00s | post=0.08s | ttfa=0.43153234757483006 | audio=1.68s | RTF=0.645 | throughput_x=1.55 | peak=0.63475257 | rms=0.11883841 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=1.64s | infer=1.60s | post=0.04s | ttfa=0.4142781589180231 | audio=2.80s | RTF=0.586 | throughput_x=1.71 | peak=0.59694034 | rms=0.07240251 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=2.26s | infer=2.22s | post=0.04s | ttfa=0.4128942769020796 | audio=3.92s | RTF=0.577 | throughput_x=1.73 | peak=0.73066771 | rms=0.09651209 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.17s | infer=2.13s | post=0.04s | ttfa=0.4269253630191088 | audio=3.76s | RTF=0.576 | throughput_x=1.74 | peak=0.49686527 | rms=0.08496454 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=4.75s | infer=4.68s | post=0.07s | ttfa=0.4142188411206007 | audio=8.40s | RTF=0.565 | throughput_x=1.77 | peak=0.67378360 | rms=0.11157448 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=6.18s | infer=6.11s | post=0.07s | ttfa=0.4145540874451399 | audio=11.04s | RTF=0.560 | throughput_x=1.79 | peak=0.71563417 | rms=0.06980126 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=6.33s | infer=6.28s | post=0.06s | ttfa=0.41452389769256115 | audio=11.36s | RTF=0.558 | throughput_x=1.79 | peak=0.53039885 | rms=0.08043028 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=8.71s | infer=8.64s | post=0.08s | ttfa=0.417252104729414 | audio=15.60s | RTF=0.558 | throughput_x=1.79 | peak=0.66311091 | rms=0.09514543 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=10.79s | infer=10.70s | post=0.09s | ttfa=0.448178393766284 | audio=19.28s | RTF=0.560 | throughput_x=1.79 | peak=0.82059997 | rms=0.12535149 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=9.72s | infer=9.64s | post=0.07s | ttfa=0.41731307841837406 | audio=17.44s | RTF=0.557 | throughput_x=1.80 | peak=0.75293171 | rms=0.08311670 | silent=False | path=outputs/full_benchmark_all_fp32/design_streaming/bench_12_en_long_03.wav | error=None
+
+========================================================================================================================
+Mode: design_non_streaming
+========================================================================================================================
+items: 12
+ok_items: 12
+error_items: 0
+silent_items: 0
+total_audio_duration_sec: 94.88
+total_generation_time_sec: 50.4858965408057
+total_inference_time_sec: 49.522821048274636
+total_postprocess_time_sec: 0.9630754925310612
+effective_rtf_elapsed_over_audio: 0.5321026195278847
+inference_only_rtf_elapsed_over_audio: 0.5219521611327428
+throughput_x_audio_over_elapsed: 1.879336735623034
+average_per_item_rtf_elapsed_over_audio: 0.558009690544814
+average_per_item_throughput_x: 1.8051534399817044
+average_audio_duration_sec: 7.906666666666667
+average_generation_time_sec: 4.207158045067142
+average_peak: 0.6502490788698196
+average_rms: 0.09534857173760732
+min_peak: 0.5293914079666138
+min_rms: 0.0756867378950119
+average_ttfa_sec: None
+min_ttfa_sec: None
+max_ttfa_sec: None
+mode: design_non_streaming
+family: design
+streaming: False
+xvec_only: False
+model: Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign
+model_load_time_sec: 41.63703514076769
+benchmark_wall_time_sec: 50.48872356116772
+wall_clock_rtf_elapsed_over_audio: 0.5321324152736902
+wall_clock_throughput_x_audio_over_wall: 1.8792315057252675
+warmup_runs: 10
+warmup_silent_items: 0
+warmup_error_items: 0
+bucket_summary_1: long: items=3, silent=0, audio=48.16s, generation=25.11s, effective_rtf=0.521, throughput_x=1.92
+bucket_summary_2: medium: items=3, silent=0, audio=30.32s, generation=16.00s, effective_rtf=0.528, throughput_x=1.89
+bucket_summary_3: short: items=3, silent=0, audio=11.68s, generation=6.43s, effective_rtf=0.551, throughput_x=1.82
+bucket_summary_4: very_short: items=3, silent=0, audio=4.72s, generation=2.94s, effective_rtf=0.623, throughput_x=1.61
+fastest_item_by_elapsed_over_audio_rtf: item 11 | en_long_02 | RTF=0.521 | throughput_x=1.92 | audio=17.92s
+slowest_item_by_elapsed_over_audio_rtf: item 2 | en_very_short_02 | RTF=0.706 | throughput_x=1.42 | audio=1.20s
+
+Benchmark files:
+item 01 | status=ok | label=en_very_short_01   | bucket=very_short | chars=  18 | elapsed=1.08s | infer=1.04s | post=0.04s | ttfa=None | audio=1.84s | RTF=0.589 | throughput_x=1.70 | peak=0.67544854 | rms=0.09848450 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_01_en_very_short_01.wav | error=None
+item 02 | status=ok | label=en_very_short_02   | bucket=very_short | chars=  21 | elapsed=0.85s | infer=0.70s | post=0.15s | ttfa=None | audio=1.20s | RTF=0.706 | throughput_x=1.42 | peak=0.67795676 | rms=0.09384410 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_02_en_very_short_02.wav | error=None
+item 03 | status=ok | label=en_very_short_03   | bucket=very_short | chars=  25 | elapsed=1.01s | infer=0.97s | post=0.04s | ttfa=None | audio=1.68s | RTF=0.600 | throughput_x=1.67 | peak=0.55686790 | rms=0.11891767 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_03_en_very_short_03.wav | error=None
+item 04 | status=ok | label=en_short_01        | bucket=short      | chars=  50 | elapsed=1.72s | infer=1.69s | post=0.04s | ttfa=None | audio=3.12s | RTF=0.553 | throughput_x=1.81 | peak=0.58443332 | rms=0.09000285 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_04_en_short_01.wav | error=None
+item 05 | status=ok | label=en_short_02        | bucket=short      | chars=  69 | elapsed=2.65s | infer=2.55s | post=0.10s | ttfa=None | audio=4.80s | RTF=0.552 | throughput_x=1.81 | peak=0.71485108 | rms=0.10659917 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_05_en_short_02.wav | error=None
+item 06 | status=ok | label=en_short_03        | bucket=short      | chars=  72 | elapsed=2.06s | infer=2.00s | post=0.06s | ttfa=None | audio=3.76s | RTF=0.547 | throughput_x=1.83 | peak=0.52939141 | rms=0.10879005 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_06_en_short_03.wav | error=None
+item 07 | status=ok | label=en_medium_01       | bucket=medium     | chars= 146 | elapsed=4.56s | infer=4.48s | post=0.08s | ttfa=None | audio=8.64s | RTF=0.527 | throughput_x=1.90 | peak=0.80820954 | rms=0.10820059 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_07_en_medium_01.wav | error=None
+item 08 | status=ok | label=en_medium_02       | bucket=medium     | chars= 160 | elapsed=5.01s | infer=4.91s | post=0.10s | ttfa=None | audio=9.44s | RTF=0.531 | throughput_x=1.88 | peak=0.68297803 | rms=0.09321401 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_08_en_medium_02.wav | error=None
+item 09 | status=ok | label=en_medium_03       | bucket=medium     | chars= 181 | elapsed=6.43s | infer=6.34s | post=0.10s | ttfa=None | audio=12.24s | RTF=0.526 | throughput_x=1.90 | peak=0.58867383 | rms=0.08154448 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_09_en_medium_03.wav | error=None
+item 10 | status=ok | label=en_long_01         | bucket=long       | chars= 247 | elapsed=7.36s | infer=7.29s | post=0.07s | ttfa=None | audio=14.08s | RTF=0.523 | throughput_x=1.91 | peak=0.60134917 | rms=0.07568674 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_10_en_long_01.wav | error=None
+item 11 | status=ok | label=en_long_02         | bucket=long       | chars= 298 | elapsed=9.33s | infer=9.23s | post=0.10s | ttfa=None | audio=17.92s | RTF=0.521 | throughput_x=1.92 | peak=0.71640974 | rms=0.07951989 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_11_en_long_02.wav | error=None
+item 12 | status=ok | label=en_long_03         | bucket=long       | chars= 263 | elapsed=8.42s | infer=8.32s | post=0.10s | ttfa=None | audio=16.16s | RTF=0.521 | throughput_x=1.92 | peak=0.66641963 | rms=0.08937880 | silent=False | path=outputs/full_benchmark_all_fp32/design_non_streaming/bench_12_en_long_03.wav | error=None

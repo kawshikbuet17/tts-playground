@@ -1,0 +1,69 @@
+Qwen3-TTS 0.6B CustomVoice Benchmark Summary
+========================================================================================================================
+
+status: SUCCESS
+model_family: Qwen3-TTS
+model_type: CustomVoice
+model: Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice
+language: English
+speaker: Ryan
+sample_rate: 24000
+device: cuda
+gpu: NVIDIA GeForce RTX 3090
+torch: 2.5.1+cu121
+dtype: bfloat16
+attn: flash_attention_2
+model_load_time_sec: 39.64
+warmup_runs: 3
+warmup_silent_items: 0
+benchmark_items: 12
+silent_items: 0
+benchmark_wall_time_sec: 334.66
+total_generation_time_sec: 334.66
+total_inference_time_sec: 328.58
+total_postprocess_time_sec: 6.08
+total_audio_duration_sec: 123.28
+average_generation_time_sec: 27.89
+average_inference_time_sec: 27.38
+average_postprocess_time_sec: 0.51
+average_audio_duration_sec: 10.27
+average_text_chars: 125.7
+average_peak: 0.51920573
+average_rms: 0.05989836
+min_peak: 0.33398438
+min_rms: 0.03122297
+effective_rtf: 2.715
+inference_only_rtf: 2.665
+wall_clock_rtf: 2.715
+average_per_item_rtf: 2.788
+fastest_item: item 9 | label=en_medium_03 | range=8-15s | RTF=2.631 | audio=14.40s | silent=False
+slowest_item: item 2 | label=en_very_short_02 | range=2-4s | RTF=3.628 | audio=2.32s | silent=False
+range_summary_1: 15-30s: items=3, silent=0, audio=57.84s, generation=154.54s, effective_rtf=2.672, avg_rtf=2.673
+range_summary_2: 2-4s: items=3, silent=0, audio=12.56s, generation=37.09s, effective_rtf=2.953, avg_rtf=3.077
+range_summary_3: 4-8s: items=3, silent=0, audio=16.80s, generation=45.05s, effective_rtf=2.681, avg_rtf=2.681
+range_summary_4: 8-15s: items=3, silent=0, audio=36.08s, generation=97.99s, effective_rtf=2.716, avg_rtf=2.722
+
+Warmup files:
+warmup 01 | elapsed= 19.77s | infer= 19.64s | post= 0.13s | audio=  3.20s | RTF= 6.178 | peak=0.57812500 | rms=0.05905591 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/warmup_1.wav
+warmup 02 | elapsed= 11.89s | infer= 11.73s | post= 0.16s | audio=  4.32s | RTF= 2.753 | peak=0.39257812 | rms=0.05228335 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/warmup_2.wav
+warmup 03 | elapsed= 19.07s | infer= 18.87s | post= 0.20s | audio=  7.04s | RTF= 2.708 | peak=0.46093750 | rms=0.05867429 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/warmup_3.wav
+
+Benchmark files:
+item 01 | label=en_very_short_01   | range=2-4s   | chars=  18 | elapsed= 22.61s | infer= 21.49s | post= 1.12s | audio=  8.08s | RTF= 2.798 | peak=0.33398438 | rms=0.03122297 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_01_en_very_short_01.wav
+item 02 | label=en_very_short_02   | range=2-4s   | chars=  21 | elapsed=  8.42s | infer=  7.42s | post= 1.00s | audio=  2.32s | RTF= 3.628 | peak=0.50390625 | rms=0.06334869 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_02_en_very_short_02.wav
+item 03 | label=en_very_short_03   | range=2-4s   | chars=  25 | elapsed=  6.06s | infer=  5.95s | post= 0.11s | audio=  2.16s | RTF= 2.805 | peak=0.35937500 | rms=0.05955089 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_03_en_very_short_03.wav
+item 04 | label=en_short_01        | range=4-8s   | chars=  61 | elapsed= 14.10s | infer= 13.97s | post= 0.14s | audio=  5.28s | RTF= 2.671 | peak=0.57031250 | rms=0.05789249 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_04_en_short_01.wav
+item 05 | label=en_short_02        | range=4-8s   | chars=  69 | elapsed= 15.71s | infer= 15.30s | post= 0.41s | audio=  5.76s | RTF= 2.727 | peak=0.44726562 | rms=0.06209986 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_05_en_short_02.wav
+item 06 | label=en_short_03        | range=4-8s   | chars=  66 | elapsed= 15.24s | infer= 15.13s | post= 0.10s | audio=  5.76s | RTF= 2.645 | peak=0.57031250 | rms=0.06947969 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_06_en_short_03.wav
+item 07 | label=en_medium_01       | range=8-15s  | chars= 146 | elapsed= 26.45s | infer= 25.44s | post= 1.01s | audio=  9.68s | RTF= 2.732 | peak=0.46875000 | rms=0.05271285 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_07_en_medium_01.wav
+item 08 | label=en_medium_02       | range=8-15s  | chars= 160 | elapsed= 33.65s | infer= 32.34s | post= 1.31s | audio= 12.00s | RTF= 2.804 | peak=0.46875000 | rms=0.05176565 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_08_en_medium_02.wav
+item 09 | label=en_medium_03       | range=8-15s  | chars= 160 | elapsed= 37.89s | infer= 37.77s | post= 0.12s | audio= 14.40s | RTF= 2.631 | peak=0.55468750 | rms=0.05966355 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_09_en_medium_03.wav
+item 10 | label=en_long_01         | range=15-30s | chars= 242 | elapsed= 47.80s | infer= 47.66s | post= 0.14s | audio= 17.60s | RTF= 2.716 | peak=0.78906250 | rms=0.08140493 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_10_en_long_01.wav
+item 11 | label=en_long_02         | range=15-30s | chars= 277 | elapsed= 58.72s | infer= 58.23s | post= 0.49s | audio= 22.08s | RTF= 2.659 | peak=0.63671875 | rms=0.07206158 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_11_en_long_02.wav
+item 12 | label=en_long_03         | range=15-30s | chars= 263 | elapsed= 48.01s | infer= 47.88s | post= 0.14s | audio= 18.16s | RTF= 2.644 | peak=0.52734375 | rms=0.05757715 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en_flash_bf16/bench_12_en_long_03.wav
+
+Range-wise summary:
+15-30s: items=3, silent=0, audio=57.84s, generation=154.54s, effective_rtf=2.672, avg_rtf=2.673
+2-4s: items=3, silent=0, audio=12.56s, generation=37.09s, effective_rtf=2.953, avg_rtf=3.077
+4-8s: items=3, silent=0, audio=16.80s, generation=45.05s, effective_rtf=2.681, avg_rtf=2.681
+8-15s: items=3, silent=0, audio=36.08s, generation=97.99s, effective_rtf=2.716, avg_rtf=2.722

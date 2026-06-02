@@ -1,0 +1,74 @@
+Qwen3-TTS Voice Clone Benchmark Summary (Native API)
+========================================================================================================================
+
+status: SUCCESS
+model_family: Qwen3-TTS (native qwen_tts)
+model: Qwen/Qwen3-TTS-12Hz-0.6B-Base
+language: English
+mode: voice_clone_icl
+ref_audio: ref_audio.wav
+ref_text_chars: 257
+sample_rate: 24000
+device: cuda
+gpu: NVIDIA GeForce RTX 3090
+torch: 2.5.1+cu121
+dtype: bf16
+xvec_only: False
+model_load_time_sec: 259.15
+warmup_runs: 10
+warmup_silent_items: 0
+benchmark_items: 12
+silent_items: 0
+benchmark_wall_time_sec: 244.50
+total_generation_time_sec: 244.50
+total_inference_time_sec: 242.78
+total_postprocess_time_sec: 1.72
+total_audio_duration_sec: 79.60
+average_generation_time_sec: 20.37
+average_inference_time_sec: 20.23
+average_postprocess_time_sec: 0.14
+average_audio_duration_sec: 6.63
+average_text_chars: 129.2
+average_peak: 0.50260417
+average_rms: 0.07581445
+min_peak: 0.34960938
+min_rms: 0.06082674
+effective_rtf_elapsed_over_audio: 3.072
+inference_only_rtf_elapsed_over_audio: 3.050
+wall_clock_rtf_elapsed_over_audio: 3.072
+average_per_item_rtf_elapsed_over_audio: 2.917
+throughput_x_audio_over_elapsed: 0.33
+wall_throughput_x_audio_over_wall: 0.33
+average_per_item_throughput_x: 0.35
+fastest_item_by_elapsed_over_audio_rtf: item 5 | label=en_short_02 | range=4-8s | RTF=2.584 | throughput_x=0.39 | audio=4.32s
+slowest_item_by_elapsed_over_audio_rtf: item 9 | label=en_medium_03 | range=8-15s | RTF=3.368 | throughput_x=0.30 | audio=8.88s
+range_summary_1: 15-30s: items=3, silent=0, audio=40.32s, generation=133.58s, effective_rtf=3.313, throughput_x=0.30, avg_rtf=3.314
+range_summary_2: 2-4s: items=3, silent=0, audio=3.60s, generation=10.26s, effective_rtf=2.850, throughput_x=0.35, avg_rtf=2.853
+range_summary_3: 4-8s: items=3, silent=0, audio=11.60s, generation=30.11s, effective_rtf=2.596, throughput_x=0.39, avg_rtf=2.599
+range_summary_4: 8-15s: items=3, silent=0, audio=24.08s, generation=70.54s, effective_rtf=2.930, throughput_x=0.34, avg_rtf=2.902
+
+Warmup files:
+warmup 01 | elapsed= 65.43s | infer= 65.34s | post= 0.08s | audio=  1.84s | RTF=35.557 | throughput_x=  0.03 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_01.wav
+warmup 02 | elapsed=  8.20s | infer=  8.11s | post= 0.09s | audio=  2.88s | RTF= 2.846 | throughput_x=  0.35 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_02.wav
+warmup 03 | elapsed= 12.49s | infer= 12.42s | post= 0.07s | audio=  4.80s | RTF= 2.603 | throughput_x=  0.38 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_03.wav
+warmup 04 | elapsed=  5.80s | infer=  5.75s | post= 0.06s | audio=  2.16s | RTF= 2.686 | throughput_x=  0.37 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_04.wav
+warmup 05 | elapsed=  7.24s | infer=  7.18s | post= 0.06s | audio=  2.72s | RTF= 2.662 | throughput_x=  0.38 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_05.wav
+warmup 06 | elapsed=  7.44s | infer=  7.38s | post= 0.06s | audio=  2.88s | RTF= 2.585 | throughput_x=  0.39 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_06.wav
+warmup 07 | elapsed= 10.20s | infer=  9.81s | post= 0.40s | audio=  3.84s | RTF= 2.657 | throughput_x=  0.38 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_07.wav
+warmup 08 | elapsed=  8.32s | infer=  8.25s | post= 0.07s | audio=  3.12s | RTF= 2.668 | throughput_x=  0.37 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_08.wav
+warmup 09 | elapsed=  5.31s | infer=  5.25s | post= 0.06s | audio=  2.00s | RTF= 2.657 | throughput_x=  0.38 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_09.wav
+warmup 10 | elapsed=  8.13s | infer=  8.05s | post= 0.08s | audio=  3.04s | RTF= 2.674 | throughput_x=  0.37 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/warmup_10.wav
+
+Benchmark files:
+item 01 | label=en_very_short_01   | range=2-4s   | chars=  18 | elapsed=  3.25s | infer=  3.17s | post= 0.08s | audio=  1.12s | RTF= 2.900 | throughput_x=  0.34 | peak=0.34960938 | rms=0.06491272 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_01_en_very_short_01.wav
+item 02 | label=en_very_short_02   | range=2-4s   | chars=  21 | elapsed=  3.51s | infer=  3.44s | post= 0.07s | audio=  1.28s | RTF= 2.742 | throughput_x=  0.36 | peak=0.44531250 | rms=0.07157322 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_02_en_very_short_02.wav
+item 03 | label=en_very_short_03   | range=2-4s   | chars=  25 | elapsed=  3.50s | infer=  3.36s | post= 0.14s | audio=  1.20s | RTF= 2.918 | throughput_x=  0.34 | peak=0.48437500 | rms=0.09356960 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_03_en_very_short_03.wav
+item 04 | label=en_short_01        | range=4-8s   | chars=  50 | elapsed=  7.55s | infer=  7.46s | post= 0.08s | audio=  2.88s | RTF= 2.620 | throughput_x=  0.38 | peak=0.44335938 | rms=0.06082674 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_04_en_short_01.wav
+item 05 | label=en_short_02        | range=4-8s   | chars=  69 | elapsed= 11.16s | infer= 11.11s | post= 0.06s | audio=  4.32s | RTF= 2.584 | throughput_x=  0.39 | peak=0.58203125 | rms=0.07013792 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_05_en_short_02.wav
+item 06 | label=en_short_03        | range=4-8s   | chars=  72 | elapsed= 11.40s | infer= 11.34s | post= 0.07s | audio=  4.40s | RTF= 2.592 | throughput_x=  0.39 | peak=0.52734375 | rms=0.09400528 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_06_en_short_03.wav
+item 07 | label=en_medium_01       | range=8-15s  | chars= 146 | elapsed= 18.51s | infer= 18.40s | post= 0.11s | audio=  7.12s | RTF= 2.600 | throughput_x=  0.38 | peak=0.49804688 | rms=0.07831836 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_07_en_medium_01.wav
+item 08 | label=en_medium_02       | range=8-15s  | chars= 160 | elapsed= 22.13s | infer= 21.98s | post= 0.15s | audio=  8.08s | RTF= 2.738 | throughput_x=  0.37 | peak=0.44531250 | rms=0.06751444 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_08_en_medium_02.wav
+item 09 | label=en_medium_03       | range=8-15s  | chars= 181 | elapsed= 29.91s | infer= 29.43s | post= 0.47s | audio=  8.88s | RTF= 3.368 | throughput_x=  0.30 | peak=0.68750000 | rms=0.07423084 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_09_en_medium_03.wav
+item 10 | label=en_long_01         | range=15-30s | chars= 247 | elapsed= 41.64s | infer= 41.41s | post= 0.23s | audio= 12.48s | RTF= 3.337 | throughput_x=  0.30 | peak=0.48242188 | rms=0.07998673 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_10_en_long_01.wav
+item 11 | label=en_long_02         | range=15-30s | chars= 298 | elapsed= 52.61s | infer= 52.50s | post= 0.11s | audio= 15.92s | RTF= 3.305 | throughput_x=  0.30 | peak=0.54296875 | rms=0.07966802 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_11_en_long_02.wav
+item 12 | label=en_long_03         | range=15-30s | chars= 263 | elapsed= 39.33s | infer= 39.18s | post= 0.15s | audio= 11.92s | RTF= 3.299 | throughput_x=  0.30 | peak=0.54296875 | rms=0.07502948 | silent=False | outputs/qwen3_tts_voice_clone_benchmark/bench_12_en_long_03.wav

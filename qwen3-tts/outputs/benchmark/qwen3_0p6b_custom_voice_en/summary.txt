@@ -1,0 +1,42 @@
+Qwen3-TTS CustomVoice Benchmark Summary
+========================================================================================================================
+
+status: SUCCESS
+model_family: Qwen3-TTS
+model: Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice
+language: English
+speaker: Ryan
+device: cuda
+gpu: NVIDIA GeForce RTX 3090
+torch: 2.5.1+cu121
+dtype: bfloat16
+attn: sdpa
+model_load_time_sec: 9.23
+warmup_runs: 3
+warmup_silent_items: 0
+benchmark_items: 8
+silent_items: 0
+benchmark_wall_time_sec: 200.33
+total_generation_time_sec: 200.32
+total_inference_time_sec: 196.34
+total_postprocess_time_sec: 3.99
+total_audio_duration_sec: 61.20
+effective_rtf: 3.273
+inference_only_rtf: 3.208
+wall_clock_rtf: 3.273
+average_per_item_rtf: 3.290
+average_audio_duration_sec: 7.65
+average_peak: 0.41430664
+average_rms: 0.05072597
+min_peak: 0.27734375
+min_rms: 0.03294829
+
+Benchmark files:
+item 01 | label=en_very_short_01 | range=2-4s | chars=18 | elapsed=18.23s | infer=18.11s | post=0.13s | audio=5.68s | RTF=3.210 | peak=0.27734375 | rms=0.03294829 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_01_en_very_short_01.wav
+item 02 | label=en_very_short_02 | range=2-4s | chars=21 | elapsed=7.36s | infer=7.23s | post=0.13s | audio=2.16s | RTF=3.408 | peak=0.32031250 | rms=0.04401295 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_02_en_very_short_02.wav
+item 03 | label=en_short_01 | range=4-8s | chars=61 | elapsed=14.12s | infer=13.97s | post=0.15s | audio=4.32s | RTF=3.269 | peak=0.42773438 | rms=0.05458578 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_03_en_short_01.wav
+item 04 | label=en_short_02 | range=4-8s | chars=69 | elapsed=16.58s | infer=15.81s | post=0.77s | audio=4.96s | RTF=3.343 | peak=0.38671875 | rms=0.04557572 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_04_en_short_02.wav
+item 05 | label=en_medium_01 | range=8-15s | chars=135 | elapsed=29.18s | infer=28.74s | post=0.44s | audio=8.96s | RTF=3.257 | peak=0.48632812 | rms=0.05377524 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_05_en_medium_01.wav
+item 06 | label=en_medium_02 | range=8-15s | chars=126 | elapsed=30.61s | infer=29.86s | post=0.75s | audio=9.28s | RTF=3.299 | peak=0.54296875 | rms=0.06406313 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_06_en_medium_02.wav
+item 07 | label=en_long_01 | range=15-30s | chars=172 | elapsed=36.70s | infer=35.23s | post=1.47s | audio=11.04s | RTF=3.324 | peak=0.36132812 | rms=0.05176698 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_07_en_long_01.wav
+item 08 | label=en_long_02 | range=15-30s | chars=196 | elapsed=47.53s | infer=47.38s | post=0.15s | audio=14.80s | RTF=3.211 | peak=0.51171875 | rms=0.05907971 | silent=False | outputs/benchmark/qwen3_0p6b_custom_voice_en/bench_08_en_long_02.wav

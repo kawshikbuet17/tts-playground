@@ -24,17 +24,14 @@ Notes:
 
 Recommended first run:
 
-cd /home/kawshik/tts-testing/OmniVoice
-conda activate omnivoice
-
 export CUDA_DEVICE_ORDER=PCI_BUS_ID
 export CUDA_VISIBLE_DEVICES=1
 
 python test_omnivoice_full_benchmark.py \
   --suite auto \
   --model k2-fsa/OmniVoice \
-  --dtype fp16 \
-  --num-step 16 \
+  --dtype bf16 \
+  --num-step 8 \
   --output-dir outputs/omnivoice_full_benchmark
 
 Voice design:
@@ -42,8 +39,8 @@ Voice design:
 CUDA_VISIBLE_DEVICES=1 python test_omnivoice_full_benchmark.py \
   --suite design \
   --instruct "female, young adult, clear voice" \
-  --dtype fp16 \
-  --num-step 16
+  --dtype bf16 \
+  --num-step 8
 
 Voice clone:
 
@@ -51,18 +48,21 @@ CUDA_VISIBLE_DEVICES=1 python test_omnivoice_full_benchmark.py \
   --suite clone \
   --ref-audio ref_audio.wav \
   --ref-text "আমি বাংলায় কথা বলছি।" \
-  --dtype fp16 \
-  --num-step 16
+  --dtype bf16 \
+  --num-step 8
 
 Full suite:
 
 CUDA_VISIBLE_DEVICES=1 python test_omnivoice_full_benchmark.py \
   --suite all \
+  --model k2-fsa/OmniVoice \
   --ref-audio ref_audio.wav \
-  --ref-text "আমি বাংলায় কথা বলছি।" \
-  --instruct "female, young adult, clear voice" \
-  --dtype fp16 \
-  --num-step 16
+  --ref-text "বসের নির্দেশ, অন্য কাগজের কাছে খবরটা যাওয়ার আগেই আমাদেরকে কোনোভাবে স্পটে পৌছাতে হবে। অগত্যা তাই যেতেই হলো।" \
+  --instruct "female, young adult" \
+  --dtype bf16 \
+  --num-step 8 \
+  --speed 1.0 \
+  --output-dir outputs/omnivoice_full_benchmark_all_step8
 """
 
 from __future__ import annotations

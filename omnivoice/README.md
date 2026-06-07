@@ -360,12 +360,15 @@ Current tested precision:
 
 ```text
 fp16: working and stable in this setup
+bf16: working better, providing better rtf
 ```
 
 Main speed-quality parameter:
 
 ```text
-num_step=16 = faster
+num_step=4 = very fast but not a good quality
+num_step=8 = faster than 16 and moderate quality
+num_step=16 = faster than 32
 num_step=32 = potentially better quality but slower
 ```
 ---
